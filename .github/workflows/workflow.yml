@@ -1,0 +1,16 @@
+name: Github Secrets Test Workflow
+
+on: [push]
+
+jobs:
+  use-secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verwende ein Secret
+        run: echo "Mein geheimer Wert ist gesetzt!"
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
